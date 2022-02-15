@@ -13,7 +13,7 @@ This is a simple program for Software Architecture and Design 5200 at Seattle Un
     - Documentation for the API, preferably available alongside the API itself (think swagger / OpenAPI)
 
 # Supported Countries
-Brazil, Canada, Germany, India, Japan, North and South Korea, Mexico, Spain, UK, USA
+Brazil, Canada, Germany, India, Japan, South Korea, Mexico, Spain, UK, USA
 
 ## Architecture Design = MVC
 ## Design Pattern = Respository patter
