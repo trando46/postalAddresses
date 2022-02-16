@@ -16,4 +16,4 @@ This is a simple program for Software Architecture and Design 5200 at Seattle Un
 Brazil, Canada, Germany, India, Japan, South Korea, Mexico, Spain, UK, USA
 
 ## Architecture Design = MVC
-## Design Pattern = Respository patter
+## Design Pattern = Repository pattern
