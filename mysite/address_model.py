@@ -1,7 +1,9 @@
 from django.db import models
 
-# This is the model class for the address. Inherits from the Django model
-# class
+"""
+This is the model class for the address. Inherits from the Django model
+class
+"""
 
 class AddressModel(models.Model):
     #TODO: Need a method for getting a full address, not just parts of an address
