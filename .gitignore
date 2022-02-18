@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VS files that aren't being used
+.vs/
+
+# Idea files that aren't necessary to have pushed
+.idea/
