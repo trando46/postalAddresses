@@ -1,5 +1,5 @@
 """
-ASGI config for mysite project.
+ASGI config for mysite project. Asychronous Server Gateway Interface
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
