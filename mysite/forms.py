@@ -1,7 +1,8 @@
 from django import forms
-from mysite.models import AddModel
+from mysite.address_model import AddressModel
 
+#
 class Addforms(forms.ModelForm):
     class Meta:
-        model=AddModel
+        model=AddressModel
         fields="__all__"

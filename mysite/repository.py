@@ -1,13 +1,13 @@
 from django import forms
 from django.shortcuts import render
-from mysite.models import AddModel
+from mysite.address_model import AddressModel
 from django.contrib import messages
 from mysite.forms import Addforms
 def index(request):
     showall=Model.objects.all()
     return render(request,'index.html',{"data":showall})
 def read(request,id):
-    readobj=AddModel.objects.get(id=id)
+    readobj=AddressModel.objects.get(id=id)
     return render(request,'index.html',{"data":readobj})
 
 def create(request):
@@ -16,7 +16,7 @@ def create(request):
         request.POST.get('state') and request.POST.get('state_iso') and
         request.POST.get('country')and request.POST.get('country_iso') and
         request.POST.get('postal_code'):
-            saverecord=AddModel()
+            saverecord=AddressModel()
             saverecord.street=request.POST.get('street')
             saverecord.city=request.POST.get('city')
             saverecord.state=request.POST.get('state')
@@ -31,11 +31,11 @@ def create(request):
         return render(request,'insert.html')
 
 def EditAdd(request,id):
-    EditAddobj=AddModel.objects.get(id=id)
+    EditAddobj=AddressModel.objects.get(id=id)
     return render(request,'Edit.html',{"AddModel":EditAddobj})
     
 def update(request,id):
-    UpdateAdd=AddModel.objects.get(id=id)
+    UpdateAdd=AddressModel.objects.get(id=id)
     form=Addforms(request.POST,instance=UpdateAdd)
     if form.is_valid():
         form.save()
@@ -43,7 +43,7 @@ def update(request,id):
         return render(request,'Edit.html',{"AddModel":UpdateAdd})
 
 def Delete(request,id):
-    delAddloyee=AddModel.objects.get(id=id)
+    delAddloyee=AddressModel.objects.get(id=id)
     delAddloyee.delete()
-    showdata=AddModel.objects.all()
+    showdata=AddressModel.objects.all()
     return render(request,'index.html',{"data": showdata})
