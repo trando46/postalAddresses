@@ -1,6 +1,5 @@
-from django import forms
 from django.shortcuts import render
-from mysite.address_model import AddressModel
+from mysite.models.address_model import AddressModel
 from django.contrib import messages
 from mysite.forms import Addforms
 def index(request):
