@@ -3,7 +3,7 @@ from django.contrib.postgres.fields import ArrayField
 from mysite.enums import entry_type_enum
 
 """"
-Create a table for holding the address format of a country with the country name, 
+Create a table for holding the address structure of a country with the country name, 
 country iso code and the address format. The address_format is a JSON string we 
 collect from the API and store as it's own field, converted to an Array field based 
 on the FormatFields Model to extract the correct structure and address references
@@ -11,7 +11,7 @@ on the FormatFields Model to extract the correct structure and address reference
 EX: JP -> Postal, Prefecture, Municipal, Address Line 2, Address Line 1.
 EX: MX -> Address Line, Settlement, Postal, Municipality, Federal Entity
 """
-class CountryAddressFormat(models.Model):
+class AddressStructure(models.Model):
     country_name = models.CharField(max_length=100)
     country_iso = models.CharField(max_length=100)
     address_format = ArrayField(ArrayField(models.CharField(max_length=1024, blank=False)))
