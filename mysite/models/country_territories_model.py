@@ -12,4 +12,3 @@ class CountryTerritories(models.Model):
     country = models.CharField(max_length=100)
     country_iso = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
-    state_iso = models.CharField(max_length=100)

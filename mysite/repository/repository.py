@@ -1,3 +1,4 @@
+''''
 from django.shortcuts import render
 from mysite.models.address_model import AddressModel
 from django.contrib import messages
@@ -46,3 +47,4 @@ def Delete(request,id):
     delAddloyee.delete()
     showdata=AddressModel.objects.all()
     return render(request,'index.html',{"data": showdata})
+'''
