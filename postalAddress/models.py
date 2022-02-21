@@ -18,7 +18,7 @@ class AddressStructure(models.Model):
 
 """
 This class model will create the JSON string to hold the format
-of the country model
+of the country address
 """
 class FormatFields:
     # What type of entry in the form this will be. Default is default(0)
