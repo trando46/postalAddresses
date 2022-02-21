@@ -1,4 +1,4 @@
-from django.db import models
+import enum
 from django.utils.translation import gettext_lazy as _
 
 """
@@ -12,7 +12,7 @@ Referenced in the format field of the address format model
 Using text choice to be able to reference with Django
 """
 
-class FormEntry(models.TextChoices):
-    DEFAULT = 'DEF', _('default')
-    TEXT = 'TXT', _('text')
-    DROPDOWN = 'DRP', _('dropdown')
+class FormEntry(enum.Enum):
+    DEFAULT = 0
+    TEXT = 1
+    DROPDOWN = 2

@@ -1,5 +1,5 @@
 from django import forms
-from mysite.models.address_model import AddressModel
+from postal_address.models.address_model import AddressModel
 
 #
 class Addforms(forms.ModelForm):

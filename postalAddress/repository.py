@@ -1,8 +1,7 @@
-''''
-from django.shortcuts import render
-from mysite.models.address_model import AddressModel
 from django.contrib import messages
-from mysite.forms import Addforms
+from django.shortcuts import render
+
+
 def index(request):
     showall=Model.objects.all()
     return render(request,'index.html',{"data":showall})
@@ -33,7 +32,7 @@ def create(request):
 def EditAdd(request,id):
     EditAddobj=AddressModel.objects.get(id=id)
     return render(request,'Edit.html',{"AddModel":EditAddobj})
-    
+
 def update(request,id):
     UpdateAdd=AddressModel.objects.get(id=id)
     form=Addforms(request.POST,instance=UpdateAdd)
@@ -47,4 +46,3 @@ def Delete(request,id):
     delAddloyee.delete()
     showdata=AddressModel.objects.all()
     return render(request,'index.html',{"data": showdata})
-'''
