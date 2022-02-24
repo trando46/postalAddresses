@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta name = "vieport" content = "width=device-width", initial-scale="1.0">
+        <link rel = "stylesheet" type ="text/css" href="../static/home.css">
+    </head>
+    <body>
+        <!!!Create a method post for the output>
+        <form class = "grid" action = "/result" method = "POST">
+            <!!!Need to display the data of the name: Using jinja template: python base code inside html file
+            <center>
+                <h2>Welcome to postal addresses! Please fill out the blank below when applicable.</h2>
+            </center>
+            <label for = "address"> Enter the Address: EX -> 123 Main Street</label>
+            <input type = "text" name ="name" id = "name">
+            <label for = "country"> Enter the iso_country_code: EX ->  (USA)</label>
+            <input type = "text" name ="lastname" id = "lastname">
+             <label for = "zipcode"> Enter the postal code: EX -> 98102</label>
+            <input type = "text" name ="lastname" id = "lastname">
+            <center><input type = "Submit" class = "file_submit"></center>
+        </form>
 
-</body>
+    </body>
 </html>
