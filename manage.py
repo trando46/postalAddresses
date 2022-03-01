@@ -2,19 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from flask import Flask,render_template,request
-app = Flask(__name__)
-
-@app.route('/')
-@app.route('/home')
-def home():
-    return render_template(("home.html"))
-
-@app.route("/result",methods=["POST","GET"])
-def result():
-    output = request.form.to_dict()
-    name = output["name"]
-    return render_template("home.html",name = name)
 
 def main():
     """Run administrative tasks.
@@ -36,9 +23,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-
-
 if __name__ == '__main__':
-    #main()
-    app.run(debug=True, port=2000)
-
+    main()
