@@ -4,66 +4,6 @@ import repository
 from django.contrib import messages
 from django.shortcuts import HttpResponse, render, redirect
 
-from django.forms import ModelForm
-from django import forms
-from formValidationApp.models import *
-
-
-class Post(models.Model):
-    Male = 'M'
-    FeMale = 'F'
-    GENDER_CHOICES = (
-        (Male, 'Male'),
-        (FeMale, 'Female'),
-    )
-
-    # define a username filed with bound  max length it can have
-    username = models.CharField(max_length=20, blank=False,
-                                null=False)
-
-    # This is used to write a post
-    text = models.TextField(blank=False, null=False)
-
-    # Values for gender are restricted by giving choices
-    gender = models.CharField(max_length=6, choices=GENDER_CHOICES,
-                              default=Male)
-
-    time = models.DateTimeField(auto_now_add=True)
-# define the class of a form
-
-
-class PostForm(ModelForm):
-
-    class Meta:
-
-        # write the name of models for which the form is made
-        model = Post
-
-        # Custom fields
-        fields = ["username", "gender", "text"]
-
-    # this function will be used for the validation
-    def clean(self):
-
-        # data from the form is fetched using super function
-        super(PostForm, self).clean()
-
-        # extract the username and text field from the data
-        username = self.cleaned_data.get('username')
-        text = self.cleaned_data.get('text')
-
-        # conditions to be met for the username length
-        if len(username) < 5:
-            self._errors['username'] = self.error_class([
-                'Minimum 5 characters required'])
-        if len(text) < 10:
-            self._errors['text'] = self.error_class([
-                'Post Should Contain a minimum of 10 characters'])
-
-        # return any errors if found
-        return self.cleaned_data
-
-
 class Controller:
 
 
