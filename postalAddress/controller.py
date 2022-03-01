@@ -1,5 +1,4 @@
-import models
-import requests
+from postalAddress.models import models
 import repository
 from django.contrib import messages
 from django.shortcuts import HttpResponse, render, redirect

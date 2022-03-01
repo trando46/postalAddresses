@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render
-from models import CountryTerritories
+from myapi.models import models
 #it will take all the objects from index 
 def index():
     showall=CountryTerritories.objects.all()

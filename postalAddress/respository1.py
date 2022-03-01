@@ -1,9 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render
-from models import AddressStructure
+from myapi.models import models
 
 def index():
-    showall=AddressStructure.objects.all()
+    showall=models.CountryAddressStructure.objects.all()
     return showall
 
 def read(id):

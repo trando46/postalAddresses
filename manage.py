@@ -11,6 +11,10 @@ def main():
     OR
     enter the following command in the Command Line:
                             python manage.py runserver
+
+    super user info
+    username:group7SWAD
+    pw: WeCanD0Th1s
     """
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
     try:
