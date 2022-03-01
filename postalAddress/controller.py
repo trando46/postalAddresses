@@ -1,4 +1,4 @@
-from postalAddress.models import models
+from myapi.models import models
 import repository
 from django.contrib import messages
 from django.shortcuts import HttpResponse, render, redirect
