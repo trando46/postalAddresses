@@ -50,3 +50,6 @@ class CountryTerritories(models.Model):
     country = models.CharField(max_length=100)
     country_iso = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
+    #meta is for database table connection
+    class Meta:
+        db_table="sample1"
