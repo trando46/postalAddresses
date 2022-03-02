@@ -14,7 +14,8 @@ class CountryAddressStructure(models.Model):
     country_name = models.CharField(max_length=100)
     country_iso = models.CharField(max_length=100)
     address_format = models.CharField(max_length=250)  # store the structure of the country's address as a string separated by commas
-
+    class Meta:
+        db_table="myapi_countryaddressstructure"
 
 """
 Create table for addresses based on country_id FK. AddressLine will hold the postal_code, state, city, and street in the 

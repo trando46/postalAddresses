@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from myapi import controllerC
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',controllerC.index,name="show"),
+    path('create',controllerC.create,name="create"),
 ]

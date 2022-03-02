@@ -1,36 +1,39 @@
 from django.contrib import messages
 from django.shortcuts import render
-from myapi.models import models
+from myapi.models import Addresses
 
-def index():
-    showall=models.CountryAddressStructure.objects.all()
-    return showall
+def index(request):
+    showall=Addresses.objects.all()
+    return render(request,'index.html',{"data":showall})
+    #return showall
 
-def read(id):
-    readobj=AddressStructure.objects.get(id=id)
-    return readobj
+def read(request,id):
+    readobj=Addresses.objects.get(id=id)
+    return render(request,'index.html',{"data":readobj})
 
-def create(model):
-    saverecord=AddressStructure()
-    saverecord.country_name=model[0]
-    saverecord.country_iso=model[1]
-    saverecord.address_format=model[2]
+def create(request,model):
+    saverecord=Addresses()
+    saverecord.address_id=model[0]
+    saverecord.country_ids=model[1]
+    saverecord.addressLine=model[2]
     #print("done")
     saverecord.save()
-    return "sucess"
+    messages.success(request,'add  Is saved sucessfully.....!')
+    return render(request,'insert.html')
     
 
 def update(request,id):
-    UpdateAdd=CountryTerritories.objects.get(id=id)
+    UpdateAdd=Addresses.objects.get(id=id)
     form=Addforms(request.POST,instance=UpdateAdd)
     if form.is_valid():
         form.save()
-        return 'Record Update Successfully....!'
-        #return render(request,'Edit.html',{"AddModel":UpdateAdd})
+        #return 'Record Update Successfully....!'
+        return render(request,'Edit.html',{"AddModel":UpdateAdd})
 
-def Delete(id):
-    delAddloyee=AddressStructure.objects.get(id=id)
+def Delete(request,id):
+    delAddloyee=Addresses.objects.get(id=id)
     delAddloyee.delete()
-    #showdata=CountryTerritories.objects.all()
-    return "delete done"
+    showdata=CountryTerritories.objects.all()
+    #return "delete done"
+    return render(request,'index.html',{"data": showdata})
    

@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>demo</title>
+	</head>
+	<body>
+		<center>
+			<h1>demo operations</h1>
+			<hr/>
+			<a href="{%url 'create'%}">new details</a>
+			<table border="1">
+				<tr>
+					<th>contry</th>
+					<th>country_name </th>
+					<th>contry iso</th>
+					<th>address_format</th>
+				</tr>
+				{% for result in data %}
+				<tr>
+					<td>{{result.country_id}}</td>
+					<td>{{result.country_name}}</td>
+					<td>{{result.country_iso}}</td>
+					<td>{{result.address_format}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</center>
+	</body>
+</html>

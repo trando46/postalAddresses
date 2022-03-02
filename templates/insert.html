@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>demo</title>
+	</head>
+	<body>
+		<center>
+			<h1>demo insert operations</h1>
+			<hr/>
+			<form method="POST">
+				{% csrf_token %}
+			<table border="1">
+				<tr>
+
+					<td>country_id</td>
+					<td><input type="text" placeholder="enter country" name="country_id" /></td>
+				</tr>
+				
+				<tr>
+
+					<td>country_name</td>
+					<td><input type="text" placeholder="enter country" name="country_name" /></td>
+				</tr>
+				<tr>
+
+					<td>country_iso</td>
+					<td><input type="text" placeholder="enter country_iso" name="country_iso" /></td>
+				</tr>
+				<tr>
+
+					<td>address_format</td>
+					<td><input type="text" placeholder="enter state" name="address_format" /></td>
+				</tr>
+				<tr>
+
+					<td><input type="submit" value="Update"></td>
+					<td>
+						{% if messages %}
+						{% for mess in messages %}
+						<b>{{mess}}</b>
+						{% endfor %}
+						{% endif %}
+					</td>
+				</tr>
+				
+				
+			</table>
+			
+		</form>
+		</center>
+	</body>
+</html>
