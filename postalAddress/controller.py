@@ -1,7 +1,7 @@
-from myapi.models import models
-import repository
 from django.contrib import messages
-from django.shortcuts import HttpResponse, render, redirect
+from django.shortcuts import redirect
+import respository1
+
 
 class Controller:
 
@@ -61,6 +61,6 @@ class Controller:
             return states  # need to format
 
     def Get_cities(self):
-        cities = repository.read(self.state)
+        cities = repository1.read(self.state)
         if cities is not None:
             return cities  # need to format
