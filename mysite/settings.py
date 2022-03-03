@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+     # adding the object that was created for us from the myapi -> apps.py
+    # This myapi.apps.MyapiConfig specifies the application configuration object
     'myapi.apps.MyapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
