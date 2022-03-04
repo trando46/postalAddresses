@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapi import controllerC
+from myapi import controller
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
