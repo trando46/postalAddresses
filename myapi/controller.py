@@ -7,7 +7,7 @@ class Controller:
 
 #get for country
     def Get_Country(request):
-        return repository.index(request)
+        return CountryAddressStructureRepository.index(request)
 
 #post for country
     def Add_Country(request):
@@ -41,13 +41,13 @@ class Controller:
                     messages.error(request,'Enter valid Address format')
                     return render(request,'insert.html')
 
-                return repository.create(request,country)
+                return CountryAddressStructureRepository.create(request,country)
         else:
             return render(request,'insert.html')
 
 #get for Address
     def Get_Address(request):
-        return respository1.index(request)
+        return AddressesRespository.index(request)
 
 #post for Address
     def Add_Address(request):
@@ -76,7 +76,7 @@ class Controller:
                     messages.error(request,'Enter valid Address Line')
                     return render(request,'insert.html')
 
-                return respository1.create(request,address)
+                return AddressesRespository.create(request,address)
         else:
             return render(request,'insert.html')
 
