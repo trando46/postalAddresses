@@ -1,13 +1,25 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <p>The postal addresses has the following record counts:</p>
-  <ul>
+<p>The postal addresses has the following record counts:</p>
+<ul>
     <li><strong>Addresses:</strong> {{ num_addresses }}</li>
     <li><strong>Country Address Structure:</strong> {{ num_countryAddressStructure}}</li>
-    <li><strong>Returning the Country Address format:</strong> {{ get_country}}</li>
-  </ul>
+    <li>
+        <strong>Returning the Country Address format:</strong>
+        <table>
+            {% for result in get_country %}
+            <tr>
+                <td>{{result.country_id}}</td>
+                <td>{{result.country_name}}</td>
+                <td>{{result.country_iso}}</td>
+                <td>{{result.address_format}}</td>
+            </tr>
+            {% endfor %}
+</ul>
 
-
+</table>
 
 {% endblock %}
+
+</li>
