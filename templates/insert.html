@@ -33,14 +33,34 @@
 				<tr>
 
 					<td><input type="submit" value="Update"></td>
-					<td>
-						{% if messages %}
-						{% for mess in messages %}
-						<b>{{mess}}</b>
-						{% endfor %}
-						{% endif %}
-					</td>
+
 				</tr>
+
+
+
+                <html>
+<head>
+	<title>demo</title>
+	</head>
+	<body>
+		<center>
+			<h1>demo operations</h1>
+			<hr/>
+
+			<table border="1">
+
+				{% for result in data %}
+				<tr>
+					<td>{{result.country_id}}</td>
+					<td>{{result.country_name}}</td>
+					<td>{{result.country_iso}}</td>
+					<td>{{result.address_format}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</center>
+	</body>
+</html>
 				
 				
 			</table>

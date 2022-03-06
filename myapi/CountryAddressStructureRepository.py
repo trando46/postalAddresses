@@ -4,7 +4,7 @@ from myapi.models import CountryAddressStructure
 #it will take all the objects from index 
 def index(request):
     showall=CountryAddressStructure.objects.all()
-    return render(request,'index.html',{"data":showall})
+    return render(request,'country.html',{"data":showall})
     
     #it will take a particular index like a particular row or column
 def read(request,id):
