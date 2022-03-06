@@ -4,8 +4,8 @@ from myapi.models import Addresses
 
 def index(request):
     showall=Addresses.objects.all()
-    return render(request,'index.html',{"data":showall})
-    #return showall
+    #return render(request,'index.html',{"data":showall})
+    return showall
 
 def read(request,id):
     readobj=Addresses.objects.get(id=id)

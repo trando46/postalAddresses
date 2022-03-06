@@ -1,7 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render
 from myapi.models import CountryAddressStructure
-#it will take all the objects from index 
+from myapi.models import Addresses
+#it will take all the objects from index
+
 def index(request):
     showall=CountryAddressStructure.objects.all()
     return showall

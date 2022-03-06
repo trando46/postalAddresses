@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapi import controller
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from myapi import controller
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('',controllerC.index,name="show"),
+    #path('myapi/',controller.Controller.Get_Country,name="show"),
+    #path('myapi/',controller.Controller.Get_Country,name="show"),
     #path('create',controllerC.create,name="create"),
 
     path('myapi/', include('myapi.urls')),

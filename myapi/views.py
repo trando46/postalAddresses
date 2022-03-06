@@ -13,10 +13,14 @@ def index(request):
     # Testing whether the contoroller is working working
     get_country = Controller.Get_Country(request)
 
+    # Tesing whether the controller is working for the Addresses
+    get_addresses = Controller.Get_Address(request)
+
     context = {
         'num_addresses': num_addresses,
         'num_countryAddressStructure': num_countryAddressStructure,
         'get_country': get_country,
+        'get_addresses': get_addresses,
     }
 
 

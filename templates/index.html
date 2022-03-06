@@ -6,7 +6,7 @@
     <li><strong>Addresses:</strong> {{ num_addresses }}</li>
     <li><strong>Country Address Structure:</strong> {{ num_countryAddressStructure}}</li>
     <li>
-        <strong>Returning the Country Address format:</strong>
+        <strong>These are the typical country address format for each country:</strong></li>
         <table>
             {% for result in get_country %}
             <tr>
@@ -16,9 +16,21 @@
                 <td>{{result.address_format}}</td>
             </tr>
             {% endfor %}
+        </table>
+
+    <li>  <strong>List of addresses:</strong></li>
+        <table>
+            {% for result in get_addresses %}
+            <tr>
+                <td>{{result.addressLine}}</td>
+            </tr>
+            {% endfor %}
+         </table>
+
+
 </ul>
 
-</table>
+
 
 {% endblock %}
 
