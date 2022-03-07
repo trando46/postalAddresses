@@ -7,25 +7,38 @@
     <li><strong>Country Address Structure:</strong> {{ num_countryAddressStructure}}</li>
     <li>
         <strong>These are the typical country address format for each country:</strong></li>
+        <!--{{get_country}} -->
         <table>
             {% for result in get_country %}
             <tr>
-                <td>{{result.country_id}}</td>
-                <td>{{result.country_name}}</td>
-                <td>{{result.country_iso}}</td>
-                <td>{{result.address_format}}</td>
+                <td>{{result}}</td>
+                
             </tr>
             {% endfor %}
         </table>
 
     <li>  <strong>List of addresses:</strong></li>
+    <!-- {{get_addresses}} -->
         <table>
             {% for result in get_addresses %}
             <tr>
-                <td>{{result.addressLine}}</td>
+
+                <td>{{result}}</td>
             </tr>
             {% endfor %}
          </table>
+
+
+         {% for i in countryAddressStructure.relateds.all %}
+    }
+    }
+<tr>
+    <td>{{i.country_name}}</td>
+    
+    
+</tr>
+{% endfor %}
+
 
 </ul>
 

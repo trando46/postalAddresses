@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render
-from myapi import CountryAddressStructureRepository
+from postalAddress import CountryAddressStructureRepository
 from postalAddress import AddressesRespository
 
 class Controller:

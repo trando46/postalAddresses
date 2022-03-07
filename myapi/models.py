@@ -25,8 +25,9 @@ order they are expected for the given country as a JSON field.
 
 class Addresses(models.Model):
     address_id = models.IntegerField(primary_key=True)
-    country_id = models.ForeignKey(CountryAddressStructure, on_delete=models.CASCADE)  # if the FK is deleted, this enter is deleted
+    country_id = models.ForeignKey(CountryAddressStructure, on_delete=models.CASCADE,related_name='relateds')  # if the FK is deleted, this enter is deleted
     addressLine = models.JSONField()
+    
 
 
 """
