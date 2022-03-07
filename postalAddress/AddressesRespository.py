@@ -1,10 +1,12 @@
 from django.contrib import messages
 from django.shortcuts import render
 from myapi.models import Addresses
+import json
+from django.core import serializers
 
 def index(request):
     showall=Addresses.objects.all()
-    #return render(request,'index.html',{"data":showall})
+    #return render(request,'index.html',{"data":showall})]
     return showall
 
 def read(request,id):

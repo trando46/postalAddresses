@@ -21,6 +21,7 @@ from django.urls import include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from myapi import views
 from myapi import controller
 
 urlpatterns = [
@@ -29,6 +30,9 @@ urlpatterns = [
     #path('myapi/',controller.Controller.Get_Country,name="show"),
     #path('create',controllerC.create,name="create"),
 
-    path('myapi/', include('myapi.urls')),
+path('search/', views.search_address, name = 'search'),
+path('search/', views.search_state, name = 'statesearch'),
+    path('myapi/', include('myapi.urls'), name = 'myapi.urls'),
+    #path('search/', views.search_address, name = 'search'),
     path('', RedirectView.as_view(url='myapi/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

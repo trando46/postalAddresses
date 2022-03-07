@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from .models import Addresses, CountryAddressStructure
 from .controller import Controller
+from postalAddress import AddressesRespository
 
 def index(request):
     """View function for home page of site"""
@@ -27,3 +28,25 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
+def search_address(request):
+    # this is coming from the index.html class
+     if request.method == 'GET':
+        query = request.GET.get('query')
+        if query:
+            products = Controller.Get_Address(request).filter(addressLine__icontains=query)
+            return render(request,'searchAddress.html',{'products': products})
+        else:
+            print("No information to show")
+            return request(request,'searchAddress.html',{})
+
+
+def search_state(request):
+    if request.method == 'GET':
+        query = request.GET.get('query')
+    listOfState = ['North Dakota']
+    if query == 'North Dakota':
+        state= Controller.Get_Address(request).filter(addressLine__icontains=query)
+        return render(request, 'searchAddress.html', {'state': state})
+    else:
+        print("No information to show")
+        return request(request, 'searchAddress.html', {})

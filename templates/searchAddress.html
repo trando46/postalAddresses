@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %}
+
+{%  block content %}
+
+ <p>Testing return results</p>
+
+    <div class="container">
+
+            <div class="row justify-content-center m-4">
+
+            {% if state %}
+
+                    <table>
+                    {% for result in state %}
+                        <td>{{result.addressLine}}</td>
+                    </table>
+
+                {% endfor %}
+            {% else %}
+                     <p>No addresses available for state </p>
+            {% endif %}
+
+
+
+
+
+
+
+                {% if products %}
+
+                    <table>
+                    {% for result in products %}
+                        <td>{{result.addressLine}}</td>
+                    </table>
+
+                {% endfor %}
+
+
+                {% else %}
+                     <p>No addresses available </p>
+                {% endif %}
+
+
+            </div>
+
+        </div>
+
+    <div class="container">
+
+            <div class="row justify-content-center m-4">
+
+{% endblock %}

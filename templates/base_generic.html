@@ -4,42 +4,20 @@
         <meta name = "vieport" content = "width=device-width", initial-scale="1.0">
         <link rel = "stylesheet" type ="text/css" href="../static/css/styles.css">
     </head>
-    <body>
-        <!!!Create a method post for the output>
-        <form class = "grid" action = "/result" method = "POST">
-            <!!!Need to display the data of the name: Using jinja template: python base code inside html file
-            <center>
-                <h2>Welcome to postal addresses! Please fill out the blank below when applicable.</h2>
-            </center>
+<div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+ <center>
+    <h1>You searched for...</h1>
+    <form action="{% url 'search' %}" method = "get" class ="d-flex">
+          <input class="form-control me-2" type = "search" name = "query" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type = "statesearch" name = "state" placeholder="Search for state" aria-label="Search">
+        <button class = "btn btn-outline-success" type = "submit">Searching</button>
+    </form>
+    </center>
 
-            <!!! This is for the user to enter an address>
-            <label for = "address"> Enter the Address: EX -> 123 Main Street</label>
-            <input type = "text" name ="address" id = "address">
 
-            <!!! This is for the drop down of the country for the user to select>
-            <label for = "country"> Select the country: EX ->  (USA)</label>
-            <select name="country" id="country">
-            <option value="DEFAULT">DEFAULT</option>
-            <option value="CAN">CAN</option>
-            <option value="UKR">UKR</option>
-            <option value="BRA">BRA</option>
-            <option value="DEU">DEU</option>
-            <option value="IND">IND</option>
-            <option value="JPN">JPN</option>
-            <option value="KOR">KOR</option>
-            <option value="IND">IND</option>
-            <option value="MEX">MEX</option>
-            <option value="ESP">ESP</option>
-            <option value="USA">USA</option>
-            </select>
 
-            <!!! This is for the user to enter the postal code>
-             <label for = "state"> Enter the state/province/prefecture: EX -> Toyko or EX -> Washington</label>
-            <input type = "text" name ="state" id = "state">
-        <!!! This is for adding additional stuff to the main home page>
-            <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
-            <center><input type = "Submit" class = "file_submit"></center>
-        </form>
+    </form>
+    </center>
 
-    </body>
+
 </html>
