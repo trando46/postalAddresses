@@ -38,20 +38,55 @@ def search_address(request):
      if request.method == 'GET':
         query = request.GET.get('query')
         country = request.GET.get('country')
+        state = request.GET.get('state')
         strCountry = str(country).lower()
         strQuery = str(query).lower()
+        strState = str(state).lower()
         print("testing Query")
         print("printing out the query: " + strQuery)
         listAddress = []
         products = Controller.Get_Address(request)
 
         get_country = Controller.Get_Country(request)
+        get_state = Controller.Get_States(request)
 
         context = {
             "listAddress": listAddress,
             "get_country": get_country,
+            "get_state": get_state,
         }
 
+        # cases when the query, country and state not empty
+        if query != '' and country != 'DEFAULT' and state != '':
+            for y in get_state:
+                z = y.lower()
+                if strState in z:
+                    for i in products:
+                        print(i)
+                        x = i.lower()
+                        if strState in x:
+                            if strCountry in x:
+                                if strQuery in x:
+                                    print("printing out the query: " + strQuery)
+                                    print("Success!")
+                                    listAddress.append((i))
+            return render(request, 'searchAddress.html', context=context)
+
+        # cases when the query is empy and country is set to default
+        if query == '' and country == 'DEFAULT':
+            for y in get_state:
+                z = y.lower()
+                if strState in z:
+                    for i in products:
+                        print(i)
+                        x = i.lower()
+                        if strState in x:
+                            print("printing out the query: " + strQuery)
+                            print("Success!")
+                            listAddress.append((i))
+            return render(request, 'searchAddress.html', context=context)
+
+       # cases when the query is only empty
         if query == '':
             for i in products:
                 print(i)
@@ -59,27 +94,60 @@ def search_address(request):
                 if strQuery in x:
                     print("testing the strquery condition")
                     if strCountry in x:
-                        print("printing out the query: " + strQuery)
-                        print("Success!")
-                        listAddress.append((i))
+                        if strState in x:
+                            print("printing out the query: " + strQuery)
+                            print("Success!")
+                            listAddress.append((i))
             print(country)
             print(listAddress)
             return render(request, 'searchAddress.html', context=context)
 
+        # cases when country is default
         if country == "DEFAULT":
-            for i in products:
-                print(i)
-                x = i.lower()
+            # cases when state is empty but query is not
+            if state == '' and query !='':
+                for i in products:
+                    print(i)
+                    x = i.lower()
 
-                if strQuery in x:
-                    print("testing the strquery condition")
+                    if strQuery in x:
+                        print("testing the strquery condition")
 
-                    print("printing out the query: " + strQuery)
-                    print("Success!")
-                    listAddress.append((i))
-            print(country)
-            print(listAddress)
-            return render(request,'searchAddress.html',context=context)
+                        print("printing out the query: " + strQuery)
+                        print("Success!")
+                        listAddress.append((i))
+                print(country)
+                print(listAddress)
+                return render(request,'searchAddress.html',context=context)
+
+            #cases when state is not empty and query is
+            if state != '' and query =='':
+                for y in get_state:
+                    z = y.lower()
+                    if strState in z:
+                        for i in products:
+                            print(i)
+                            x = i.lower()
+                            if strState in x:
+                                print("printing out the query: " + strQuery)
+                                print("Success!")
+                                listAddress.append((i))
+                return render(request, 'searchAddress.html', context=context)
+
+            #cases when both state and query is not empty
+            if state != '' and query != '':
+                for y in get_state:
+                    z = y.lower()
+                    if strState in z:
+                        for i in products:
+                            print(i)
+                            x = i.lower()
+                            if strState in x:
+                                if strQuery in x:
+                                    print("printing out the query: " + strQuery)
+                                    print("Success!")
+                                    listAddress.append((i))
+                return render(request, 'searchAddress.html', context=context)
 
         if query:
             print("testing")
