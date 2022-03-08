@@ -38,7 +38,7 @@ Create table for the states, territories, provinces, prefectures, etc based on t
 class States(models.Model):
     state_id = models.IntegerField(primary_key=True)
     country_id = models.ForeignKey(CountryAddressStructure, on_delete=models.CASCADE, related_name='state_countryID')  # if the FK is deleted, this entry is deleted
-    state_name = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
 
 
 """
