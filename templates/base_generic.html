@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name = "vieport" content = "width=device-width", initial-scale="1.0">
-        <link rel = "stylesheet" type ="text/css" href="../static/css/styles.css">
-    </head>
+<head>
+    <meta name="vieport" content="width=device-width" , initial-scale="1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+</head>
 <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
- <center>
+<center>
     <h1>You searched for...</h1>
-    <form action="{% url 'search' %}" method = "get" class ="d-flex">
-        <label for = "query"> Enter your search:</label>
-          <input class="form-control me-2" type = "search" name = "query" placeholder="Search" aria-label="Search">
-        <!!input class="form-control me-2" type = "statesearch" name = "state" placeholder="Search for state" aria-label="Search">
-         <!!! This is for the drop down of the country for the user to select>
-            <label for = "country"> Select the country:</label>
+    <form action="{% url 'search' %}" method="get" class="d-flex">
+        <div>
+            <!-- This is for the user to enter an address-->
+            <label for="query"> Enter your address:</label>
+            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+            <!!input class="form-control me-2" type = "statesearch" name = "state" placeholder="Search for state"
+            aria-label="Search">
+        </div>
+
+        <div>
+            <!-- This is for the drop down of the country for the user to select-->
+            <label for="country"> Select the country:</label>
             <select name="country" id="country">
-            <option value="DEFAULT">DEFAULT</option>
-            <option value="Canada">CAN</option>
-            <option value="United Kingdom">UKR</option>
-            <option value="Brazil">BRA</option>
-            <option value="Germany">DEU</option>
-            <option value="India">IND</option>
-            <option value="Japan">JPN</option>
-            <option value="South Korea">KOR</option>
-            <option value="Mexico">MEX</option>
-            <option value="Spain">ESP</option>
-            <option value="United States">USA</option>
+                <option value="DEFAULT">DEFAULT</option>
+                <option value="Canada">CAN</option>
+                <option value="United Kingdom">UKR</option>
+                <option value="Brazil">BRA</option>
+                <option value="Germany">DEU</option>
+                <option value="India">IND</option>
+                <option value="Japan">JPN</option>
+                <option value="South Korea">KOR</option>
+                <option value="Mexico">MEX</option>
+                <option value="Spain">ESP</option>
+                <option value="United States">USA</option>
             </select>
+        </div>
 
-
-
-
-        <button class = "btn btn-outline-success" type = "submit">Searching</button>
+        <div>
+            <!-- Submit search button-->
+            <button class="btn btn-outline-success" type="submit">Searching</button>
+        </div>
     </form>
-    </center>
-
-
-
-    </form>
-    </center>
-
-
+</center>
+</form>
+</center>
 </html>
