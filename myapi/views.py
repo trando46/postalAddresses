@@ -28,7 +28,7 @@ def index(request):
 
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html', context=context)
+    return render(request, 'base_generic.html', context=context)
 
 """
 This function does the querying for the user inputs for the addresses and give the match back 

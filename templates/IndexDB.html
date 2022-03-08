@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+<!-- THIS IS A CODE FOR DISPLAYING ALL OF THE DB INFORMATION -->
+{% block content %}
+<p>The postal addresses has the following record counts:</p>
+<ul>
+    <li><strong>Addresses:</strong> {{ num_addresses }}</li>
+    <li><strong>Country Address Structure:</strong> {{ num_countryAddressStructure}}</li>
+    <li>
+        <strong>These are the typical country address format for each country:</strong></li>
+    <!--{{get_country}} -->
+    <table>
+        {% for result in get_country %}
+        <tr>
+            <td>{{result}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <li><strong>List of addresses:</strong></li>
+
+    <!-- {{get_addresses}} -->
+    <table>
+        {% for result in get_addresses %}
+        <tr>
+            <td>{{result}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% for i in countryAddressStructure.relateds.all %}
+    }
+    }
+    <tr>
+        <td>{{i.country_name}}</td>
+    </tr>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
