@@ -35,7 +35,7 @@ class Controller:
                     messages.error(request,'Enter valid state')
                     return render(request,'insert.html')
 
-                return AddressesRespository.create(request,states)
+                return StateRespository.create(request,states)
         else:
             return render(request,'insert.html')
 
