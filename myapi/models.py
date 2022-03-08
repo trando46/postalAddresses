@@ -14,8 +14,10 @@ class CountryAddressStructure(models.Model):
     country_name = models.CharField(max_length=100)
     country_iso = models.CharField(max_length=100)
     address_format = models.CharField(max_length=250)  # store the structure of the country's address as a string separated by commas
+
     class Meta:
-        db_table="myapi_countryaddressstructure"
+        db_table = "myapi_countryaddressstructure"
+
 
 """
 Create table for addresses based on country_id FK. AddressLine will hold the postal_code, state, city, and street in the 
@@ -25,9 +27,18 @@ order they are expected for the given country as a JSON field.
 
 class Addresses(models.Model):
     address_id = models.IntegerField(primary_key=True)
-    country_id = models.ForeignKey(CountryAddressStructure, on_delete=models.CASCADE,related_name='relateds')  # if the FK is deleted, this enter is deleted
+    country_id = models.ForeignKey(CountryAddressStructure, on_delete=models.CASCADE, related_name='address_countryID')  # if the FK is deleted, this enter is deleted
     addressLine = models.JSONField()
-    
+
+
+"""
+Create table for the states, territories, provinces, prefectures, etc based on the coutnry_id FK.
+"""
+
+class States(models.Model):
+    state_id = models.IntegerField(primary_key=True)
+    country_id = models.ForeignKey(CountryAddressStructure, on_delete=models.CASCADE, related_name='state_countryID')  # if the FK is deleted, this entry is deleted
+    state_name = models.CharField(max_length=100)
 
 
 """
@@ -35,6 +46,7 @@ This class model will allow for easier access of the JSON information in the Add
 You can call the keys of the address (state, postal_code, etc.) and return the values.
 All default values are empty strings
 """
+
 
 class AddressLine:
     # key for postal code for any given address
