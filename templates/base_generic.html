@@ -28,17 +28,12 @@
             <!-- This is for the drop down of the country for the user to select-->
             <label for="country"> Select the country:</label>
             <select name="country" id="country">
+            <!-- Dynamically allocating the countries -->
                 <option value="DEFAULT">DEFAULT</option>
-                <option value="Canada">CAN</option>
-                <option value="United Kingdom">UKR</option>
-                <option value="Brazil">BRA</option>
-                <option value="Germany">DEU</option>
-                <option value="India">IND</option>
-                <option value="Japan">JPN</option>
-                <option value="South Korea">KOR</option>
-                <option value="Mexico">MEX</option>
-                <option value="Spain">ESP</option>
-                <option value="United States">USA</option>
+                 {% for i in get_country %}
+                   <option value={{ i }}>{{ i }}</option>
+                   print(i)
+                {% endfor %}
             </select>
         </div>
 
