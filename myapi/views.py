@@ -26,7 +26,7 @@ def index(request):
 
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html', context=context)
+    return render(request, 'displayingContent.html', context=context)
 
 def search_address(request):
     # this is coming from the index.html class
