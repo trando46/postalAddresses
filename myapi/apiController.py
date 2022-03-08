@@ -2,8 +2,42 @@ from django.contrib import messages
 from django.shortcuts import render
 from postalAddress import CountryAddressStructureRepository
 from postalAddress import AddressesRespository
+from postalAddress import StateRespository
 
 class Controller:
+
+
+    def Get_States(request):
+        return StateRespository.index(request)
+    def Add_States(request):
+        #list for adding Address
+        states = []
+
+        if request.method =="POST":
+
+            if request.POST.get('state_id') and request.POST.get('country_id')and request.POST.get('state') :
+
+                if (len(request.POST.get('state_id'))) >=1:
+                    states.append(request.POST.get('state_id'))
+                else:
+                    messages.error(request,'Enter valid state ID')
+                    return render(request,'insert.html')
+
+                if (len(request.POST.get('country_id'))) >=1:
+                    states.append(request.POST.get('country_id'))
+                else:
+                    messages.error(request,'Enter valid Country ID')
+                    return render(request,'insert.html')
+
+                if (len(request.POST.get('state'))) >=1:
+                    states.append(request.POST.get('state'))
+                else:
+                    messages.error(request,'Enter valid state')
+                    return render(request,'insert.html')
+
+                return AddressesRespository.create(request,states)
+        else:
+            return render(request,'insert.html')
 
 #get for country
     def Get_Country(request):
