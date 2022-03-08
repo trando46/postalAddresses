@@ -44,6 +44,14 @@ def search_address(request):
         print("printing out the query: " + strQuery)
         listAddress = []
         products = Controller.Get_Address(request)
+
+        get_country = Controller.Get_Country(request)
+
+        context = {
+            "listAddress": listAddress,
+            "get_country": get_country,
+        }
+
         if query == '':
             for i in products:
                 print(i)
@@ -56,7 +64,7 @@ def search_address(request):
                         listAddress.append((i))
             print(country)
             print(listAddress)
-            return render(request, 'searchAddress.html', {'listAddress': listAddress})
+            return render(request, 'searchAddress.html', context=context)
 
         if country == "DEFAULT":
             for i in products:
@@ -71,7 +79,7 @@ def search_address(request):
                     listAddress.append((i))
             print(country)
             print(listAddress)
-            return render(request,'searchAddress.html',{'listAddress': listAddress})
+            return render(request,'searchAddress.html',context=context)
 
         if query:
             print("testing")
@@ -88,7 +96,7 @@ def search_address(request):
                         listAddress.append((i))
             print(country)
             print(listAddress)
-            return render(request,'searchAddress.html',{'listAddress': listAddress})
+            return render(request,'searchAddress.html',context=context)
         else:
             print("No information to show")
             return request(request,'searchAddress.html',{})
