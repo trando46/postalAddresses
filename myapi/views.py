@@ -5,8 +5,10 @@ from .models import Addresses, CountryAddressStructure
 from .apiController import Controller
 from postalAddress import AddressesRespository
 
+"""
+This function is for viewing the content in our database 
+"""
 def index(request):
-    """View function for home page of site"""
     # Generate counts of the addresses and countryaddressstructure
     num_addresses = Addresses.objects.all().count()
     num_countryAddressStructure = CountryAddressStructure.objects.all().count()
@@ -28,6 +30,9 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'displayingContent.html', context=context)
 
+"""
+This function does the querying for the user inputs for the addresses and give the match back 
+"""
 def search_address(request):
     # this is coming from the index.html class
      if request.method == 'GET':
@@ -88,14 +93,3 @@ def search_address(request):
             print("No information to show")
             return request(request,'searchAddress.html',{})
 
-
-def search_state(request):
-    if request.method == 'GET':
-        query = request.GET.get('query')
-    listOfState = ['North Dakota']
-    if query == 'North Dakota':
-        state= Controller.Get_Address(request).filter(addressLine__icontains=query)
-        return render(request, 'searchAddress.html', {'state': state})
-    else:
-        print("No information to show")
-        return request(request, 'searchAddress.html', {})
