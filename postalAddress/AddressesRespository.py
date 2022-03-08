@@ -34,8 +34,8 @@ def index(request):
 
 def read(request,address_id):
     readobj=Addresses.objects.get(address_id=address_id)
-    #return list(readobj)
-    return render(request,'index.html',{"data":readobj})
+    return list(readobj)
+    #return render(request,'index.html',{"data":readobj})
 
 def create(request,model):
     saverecord=Addresses()
@@ -46,7 +46,7 @@ def create(request,model):
     saverecord.save()
     messages.success(request,'add  Is saved sucessfully.....!')
     
-    return render(request,'insert.html')
+    #return render(request,'insert.html')
     
 
 def update(request,address_id):
@@ -55,14 +55,14 @@ def update(request,address_id):
     if form.is_valid():
         form.save()
         #return 'Record Update Successfully....!'
-        #return list(UpdateAdd)
-        return render(request,'Edit.html',{"AddModel":UpdateAdd})
+        return list(UpdateAdd)
+        #return render(request,'Edit.html',{"AddModel":UpdateAdd})
 
 def Delete(request,address_id):
     delAddloyee=Addresses.objects.get(address_id=address_id)
     delAddloyee.delete()
     showdata=CountryTerritories.objects.all()
     #return "delete done"
-    #return list(showdata)
-    return render(request,'index.html',{"data": showdata})
+    return list(showdata)
+    #return render(request,'index.html',{"data": showdata})
    
