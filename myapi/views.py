@@ -42,7 +42,8 @@ def search_address(request):
             print(products)
             for i in products:
                 print(i)
-                if strQuery in i:
+                x = i.lower()
+                if strQuery in x:
                     print("printing out the query: " + strQuery)
                     print("Success!")
                     listAddress.append((i))

@@ -26,21 +26,15 @@
 
 
                <li>  <strong>List of addresses that meet your search:</strong></li>
-
-
-                    <table>
                     {% if listAddress%}
+                        <table>
                     {% for result in listAddress %}
+                         <tr>
                         <td>{{result}}</td>
-
-
+                        </tr>
                     {% endfor %}
-
-
-
                     {% else %}
                         <p>No addresses available </p>
-
                     {% endif %}
                     </table>
 
