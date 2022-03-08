@@ -23,7 +23,7 @@ def index(request):
         print(t1)
         result.append(t1)
         
-    result=[''.join(ele) for ele in result]
+    result=[' '.join(ele) for ele in result]
     #print(result)
         
         

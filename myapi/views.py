@@ -32,9 +32,21 @@ def search_address(request):
     # this is coming from the index.html class
      if request.method == 'GET':
         query = request.GET.get('query')
+        strQuery = str(query)
+        print("testing Query")
+        print("printing out the query: " + strQuery)
+        listAddress = []
         if query:
-            products = Controller.Get_Address(request).filter(addressLine__icontains=query)
-            return render(request,'searchAddress.html',{'products': products})
+            products = Controller.Get_Address(request)
+            print("testing")
+            print(products)
+            for i in products:
+                print(i)
+                if strQuery in i:
+                    print("printing out the query: " + strQuery)
+                    print("Success!")
+                    listAddress.append((i))
+            return render(request,'searchAddress.html',{'listAddress': listAddress})
         else:
             print("No information to show")
             return request(request,'searchAddress.html',{})

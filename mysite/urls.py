@@ -31,7 +31,7 @@ urlpatterns = [
     #path('create',controllerC.create,name="create"),
 
 path('search/', views.search_address, name = 'search'),
-path('search/', views.search_state, name = 'statesearch'),
+#path('search/', views.search_state, name = 'statesearch'),
     path('myapi/', include('myapi.urls'), name = 'myapi.urls'),
     #path('search/', views.search_address, name = 'search'),
     path('', RedirectView.as_view(url='myapi/', permanent=True)),
