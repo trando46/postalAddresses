@@ -32,21 +32,57 @@ def search_address(request):
     # this is coming from the index.html class
      if request.method == 'GET':
         query = request.GET.get('query')
-        strQuery = str(query)
+        country = request.GET.get('country')
+        strCountry = str(country).lower()
+        strQuery = str(query).lower()
         print("testing Query")
         print("printing out the query: " + strQuery)
         listAddress = []
+        products = Controller.Get_Address(request)
+        if query == '':
+            for i in products:
+                print(i)
+                x = i.lower()
+                if strQuery in x:
+                    print("testing the strquery condition")
+                    if strCountry in x:
+                        print("printing out the query: " + strQuery)
+                        print("Success!")
+                        listAddress.append((i))
+            print(country)
+            print(listAddress)
+            return render(request, 'searchAddress.html', {'listAddress': listAddress})
+
+        if country == "DEFAULT":
+            for i in products:
+                print(i)
+                x = i.lower()
+
+                if strQuery in x:
+                    print("testing the strquery condition")
+
+                    print("printing out the query: " + strQuery)
+                    print("Success!")
+                    listAddress.append((i))
+            print(country)
+            print(listAddress)
+            return render(request,'searchAddress.html',{'listAddress': listAddress})
+
         if query:
-            products = Controller.Get_Address(request)
             print("testing")
             print(products)
             for i in products:
                 print(i)
                 x = i.lower()
+
                 if strQuery in x:
-                    print("printing out the query: " + strQuery)
-                    print("Success!")
-                    listAddress.append((i))
+                    print("testing the strquery condition")
+                    if strCountry in x:
+                        print("printing out the query: " + strQuery)
+                        print("Success!")
+                        listAddress.append((i))
+            print(country)
+            print(listAddress)
             return render(request,'searchAddress.html',{'listAddress': listAddress})
         else:
             print("No information to show")
