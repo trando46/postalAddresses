@@ -35,7 +35,7 @@ def create(request,model):
     #print("done")
     saverecord.save()
     messages.success(request,'add Is saved sucessfully.....!')
-    return render(request,'insert.html')
+    #return render(request,'insert.html')
     
     
 
