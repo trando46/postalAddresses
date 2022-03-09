@@ -9,16 +9,17 @@ class Controller:
 
 
     def Get_States(request):
+        #request is sent to the repository to get the list
         return StateRespository.index(request)
 
     def Add_States(request):
-        #list for adding Address
+        #list for adding states
         states = []
 
         if request.method =="POST":
-
+            #gets all the required parameters
             if request.POST.get('state_id') and request.POST.get('country_id')and request.POST.get('state') :
-
+                # checks if there is input in each parameter
                 if (len(request.POST.get('state_id'))) >=1:
                     states.append(request.POST.get('state_id'))
                 else:
@@ -36,13 +37,14 @@ class Controller:
                 else:
                     messages.error(request,'Enter valid state')
                     #return render(request,'insert.html')
-
+                # request is sent to the repository to create a new state
                 return StateRespository.create(request,states)
         else:
             return HttpResponseBadRequest("We cannot process the request")
 
 #get for country
     def Get_Country(request):
+        # request is sent to the repository to get the list
         return CountryAddressStructureRepository.index(request)
 
 #post for country
@@ -51,8 +53,9 @@ class Controller:
         country=[]
 
         if request.method =="POST":
-
+            # gets all the required parameters
             if request.POST.get('country_id') and request.POST.get('country_name')and request.POST.get('country_iso') and request.POST.get('address_format'):
+                # checks if there is input in each parameter
                 if (len(request.POST.get('country_id'))) >=1:
                     country.append(request.POST.get('country_id'))
                 else:
@@ -76,13 +79,14 @@ class Controller:
                 else:
                     messages.error(request,'Enter valid Address format')
                     #return render(request,'insert.html')
-
+                    # request is sent to the repository to create a new country
                 return CountryAddressStructureRepository.create(request,country)
         else:
             return HttpResponseBadRequest("We cannot process the request")
 
 #get for Address
     def Get_Address(request):
+        # request is sent to the repository to get the list
         return AddressesRespository.index(request)
 
 #post for Address
@@ -91,9 +95,9 @@ class Controller:
         address = []
 
         if request.method =="POST":
-
+            # gets all the required parameters
             if request.POST.get('address_id') and request.POST.get('country_id')and request.POST.get('addressLine') :
-
+                #checks if there is input in each parameter
                 if (len(request.POST.get('address_id'))) >=1:
                     address.append(request.POST.get('address_id'))
                 else:
@@ -111,7 +115,7 @@ class Controller:
                 else:
                     messages.error(request,'Enter valid Address Line')
                     #return render(request,'insert.html')
-
+                # request is sent to the repository to create a new address
                 return AddressesRespository.create(request,address)
         else:
             return HttpResponseBadRequest("We cannot process the request")
