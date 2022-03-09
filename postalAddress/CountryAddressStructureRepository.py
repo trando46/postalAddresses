@@ -18,10 +18,10 @@ def index(request):
 
     # it will take a particular index like a particular row or column
 
-
+# created index1 for testing
 def index1(request):
     showall = CountryAddressStructure.objects.all()
-    return render(request, 'index1.html', {"data": showall})
+    #return render(request, 'index1.html', {"data": showall})
 
     # it will take a particular index like a particular row or column
 
