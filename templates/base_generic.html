@@ -50,8 +50,9 @@
                 <!-- Dynamically allocating the countries -->
                 <option value="DEFAULT">DEFAULT</option>
                 {% for i in get_country %}
-                <option value={{ i }}>{{ i }}</option>
-                print(i)
+                <option value="{{ i }}">{{ i }}</option>
+
+                print(">>>>>name of the country: " + i)
                 {% endfor %}
             </select>
         </div>
