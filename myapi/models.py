@@ -46,8 +46,6 @@ This class model will allow for easier access of the JSON information in the Add
 You can call the keys of the address (state, postal_code, etc.) and return the values.
 All default values are empty strings
 """
-
-
 class AddressLine:
     # key for postal code for any given address
     postal_code = ""
@@ -58,7 +56,8 @@ class AddressLine:
     # key for city for any given address
     city = ""
 
-    # key for street for any given address. This field will contain the sections of the address that aren't covered by the above
+    # key for street for any given address. This field will contain the sections of
+    # the address that aren't covered by the above
     street = ""
 
     def __init__(self, postal_code, state, city, street):

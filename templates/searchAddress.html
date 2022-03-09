@@ -3,17 +3,17 @@
 {%  block content %}
 <!-- HTML CODE TO DISPLAY THE SEARCH RESULTS -->
 <div class="container">
-
-    <li><strong>List of addresses that meet your search:</strong></li>
+    <h2>-------------------------------------------------------------------------------</h2>
+    <h1>Results are in:</h1>
     {% if listAddress%}
-    <table>
+    <table align="center">
         {% for result in listAddress %}
         <tr>
             <td>{{result}}</td>
         </tr>
         {% endfor %}
         {% else %}
-        <p>No addresses available </p>
+        <h1 style="color:crimson">No addresses meet your search</h1>
         {% endif %}
     </table>
 </div>

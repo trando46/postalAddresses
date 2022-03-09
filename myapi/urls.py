@@ -11,5 +11,4 @@ urlpatterns = [
     path('read/<int:country_id>',CountryAddressStructureRepository.read,name="read"),
     path('update/<int:country_id>',CountryAddressStructureRepository.update,name="update"),
     path('Delete/<int:country_id>',CountryAddressStructureRepository.Delete,name="Del"),
-   
 ]

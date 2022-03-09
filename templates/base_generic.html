@@ -9,46 +9,57 @@
         h1 {text-align: center;}
         p {text-align: center;}
         div {text-align: center;}
+
+
     </style>
     <h1 style="background-color:Black;color:White;"> Welcome to postal addresses search!</h1>
 </div>
 
 <center>
-    <h1>You searched for...</h1>
+    <h2>Enter your search inputs below: </h2>
+    <h3 style="color:crimson">At least one input is required</h3>
+    <h2>-------------------------------------------------------------------------------</h2>
+
     <form action="{% url 'search' %}" method="get" class="d-flex">
         <div>
             <!-- This is for the user to enter an address-->
-            <label for="query"> Enter your address:</label>
-            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+            <label for="query"> Street Address:</label>
+            <input class="form-control me-2" type="search" style="id_long_entry" name="query"
+                   placeholder="enter street level address" aria-label="Search">
             <!--input class="form-control me-2" type = "statesearch" name = "state" placeholder="Search for state"
             aria-label="Search"-->
         </div>
 
+        </br>
 
         <div>
             <!-- This is for the user to enter state-->
-            <label for="state"> Enter your state:</label>
-            <input class="form-control me-2" type="search" name="state" placeholder="Search" aria-label="Search">
+            <label for="state">State/Territory/Province or Equivalent:</label>
+            <input class="form-control me-2" type="search" name="state" placeholder="Washington OR Tokyo"
+                   aria-label="Search">
             <!--input class="form-control me-2" type = "statesearch" name = "state" placeholder="Search for state"
             aria-label="Search"-->
         </div>
 
+        </br>
+
         <div>
             <!-- This is for the drop down of the country for the user to select-->
-            <label for="country"> Select the country:</label>
+            <label for="country"> Country Select:</label>
             <select name="country" id="country">
-            <!-- Dynamically allocating the countries -->
+                <!-- Dynamically allocating the countries -->
                 <option value="DEFAULT">DEFAULT</option>
-                 {% for i in get_country %}
-                   <option value={{ i }}>{{ i }}</option>
-                   print(i)
+                {% for i in get_country %}
+                <option value={{ i }}>{{ i }}</option>
+                print(i)
                 {% endfor %}
             </select>
         </div>
 
+        </br>
         <div>
             <!-- Submit search button-->
-            <button class="btn btn-outline-success" type="submit">Searching</button>
+            <button class="btn btn-outline-success" type="submit">Submit</button>
         </div>
 
         <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
