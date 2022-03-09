@@ -49,12 +49,18 @@ def search_address(request):
 
         get_country = Controller.Get_Country(request)
         get_state = Controller.Get_States(request)
+        get_default = ''
 
         context = {
             "listAddress": listAddress,
             "get_country": get_country,
             "get_state": get_state,
         }
+
+        # cases when the query, country and state are empty
+        if query == '' and country == 'DEFAULT' and state == '':
+            return render(request, 'searchAddress.html', context=context)
+
 
         # cases when the query, country and state not empty
         if query != '' and country != 'DEFAULT' and state != '':
@@ -104,6 +110,11 @@ def search_address(request):
 
         # cases when country is default
         if country == "DEFAULT":
+            print("country is default")
+            # cases when state and query is emtpy
+            if state == '' and query == '':
+                return request(request,'searchAddress.html',{})
+
             # cases when state is empty but query is not
             if state == '' and query !='':
                 for i in products:
