@@ -26,13 +26,14 @@ from myapi import apiController
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('myapi/', include('myapi.urls'), name = 'myapi.urls'),
+    path('', RedirectView.as_view(url='myapi/', permanent=True)),
+
+    # Testing
     #path('myapi/',controller.Controller.Get_Country,name="show"),
     #path('myapi/',controller.Controller.Get_Country,name="show"),
     #path('create',controllerC.create,name="create"),
-
-path('search/', views.search_address, name = 'search'),
-#path('search/', views.search_state, name = 'statesearch'),
-    path('myapi/', include('myapi.urls'), name = 'myapi.urls'),
     #path('search/', views.search_address, name = 'search'),
-    path('', RedirectView.as_view(url='myapi/', permanent=True)),
+    #path('search/', views.search_state, name = 'statesearch'),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

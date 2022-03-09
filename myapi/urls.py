@@ -6,6 +6,7 @@ urlpatterns = [
      # A view function that will be called if the URL pattern is detected: views.index,
     # which is the function named index() in the views.py file.
     path('', views.index, name='index'),
+    path('search/', views.search_address, name = 'search'),
     path('show',CountryAddressStructureRepository.index1,name="show"),
     path('read/<int:country_id>',CountryAddressStructureRepository.read,name="read"),
     path('update/<int:country_id>',CountryAddressStructureRepository.update,name="update"),
